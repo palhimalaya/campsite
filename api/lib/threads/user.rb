@@ -13,7 +13,7 @@ module Threads
     end
 
     def primary_email_or_fallback
-      primary_email || "#{[first_name, last_name, id].select(&:present?).map(&:downcase).join("-")}@campsite.com"
+      primary_email || "#{[first_name, last_name, id].select(&:present?).map(&:downcase).join("-")}@truemark.dev"
     end
 
     def full_name

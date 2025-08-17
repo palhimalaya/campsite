@@ -17,7 +17,7 @@ class Post
           #{task_item("If you use Linear, add the integration to create and link Linear issues from posts. <a class=\"prose-link\" target=\"_blank\" href=\"https://www.campsite.com/changelog/2024-07-09-create-linear-issues\">Learn more</a>")}
         </ul>
 
-        <p>You can request a feature or report a bug by clicking the <kbd>?</kbd> in the sidebar or by emailing us at <a class="prose-link" target="_blank" href="mailto:support@campsite.com">support@campsite.com</a>. If you’d like help onboarding your team, <a class="prose-link" target="_blank" href="https://cal.com/brianlovin/campsite-demo">book 30 minutes with Brian</a>, one of Campsite’s co-founders.</p>
+        <p>You can request a feature or report a bug by clicking the <kbd>?</kbd> in the sidebar or by emailing us at <a class="prose-link" target="_blank" href="mailto:support@truemark.dev">support@campsite.com</a>. If you’d like help onboarding your team, <a class="prose-link" target="_blank" href="https://cal.com/brianlovin/campsite-demo">book 30 minutes with Brian</a>, one of Campsite’s co-founders.</p>
       HTML
 
       CreatePost.new(

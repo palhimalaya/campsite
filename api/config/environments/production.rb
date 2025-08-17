@@ -101,19 +101,13 @@ Rails.application.configure do
 
   config.active_record.async_query_executor = :global_thread_pool
 
-  config.hosts << "admin.campsite.design"
-  config.hosts << "auth.campsite.design"
-  config.hosts << "api.campsite.design"
+  config.hosts << "camp-admin.polo-apps.com"
+  config.hosts << "camp-auth.polo-apps.com"
+  config.hosts << "camp-api.polo-apps.com"
 
-  config.hosts << "admin.campsite.co"
-  config.hosts << "auth.campsite.co"
-  config.hosts << "api.campsite.co"
-
-  config.hosts << "admin.campsite.com"
-  config.hosts << "auth.campsite.com"
-  config.hosts << "api.campsite.com"
-
-  config.hosts << "campsite-api.fly.dev"
+  config.hosts << "camp-admin.truemark.dev"
+  config.hosts << "camp-auth.truemark.dev"
+  config.hosts << "camp-api.truemark.dev"
 
   # required to access the app via Fly private network
   config.hosts << "campsite-api.internal"

@@ -4,8 +4,11 @@ ActiveSupport::Notifications.subscribe("request.action_dispatch") do |_name, sta
   request_start_header_value = payload[:request].headers["X-Request-Start"]
   next unless request_start_header_value
 
-  request_start_microseconds_since_epoch = request_start_header_value.match(/^t=(?<microseconds>\d+)/)[:microseconds]&.to_i
-  next unless request_start_microseconds_since_epoch
+  match_data = request_start_header_value.match(/^t=(?<microseconds>\d+)/)
+  next unless match_data
+
+  request_start_microseconds_since_epoch = match_data[:microseconds].to_i
+  next if request_start_microseconds_since_epoch.zero?
 
   request_start_time = Time.zone.at(request_start_microseconds_since_epoch / 1_000_000.0)
   request_queue_time = start - request_start_time

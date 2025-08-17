@@ -17,11 +17,11 @@ class ApplicationMailer < ActionMailer::Base
 
   module ApplicationHelper
     def noreply_email
-      "Campsite <no-reply@campsite.com>"
+      "Campsite <hello@truemark.dev>"
     end
 
     def support_email
-      "Campsite Support <support@campsite.com>"
+      "Campsite Support <support@truemark.dev>"
     end
 
     def format_user_email(user)

@@ -38,7 +38,9 @@ const cspResourcesByDirective = {
     'https://*.campsite.co',
     'wss://*.campsite.co',
     'https://*.campsite.com',
+    'https://*.polo-apps.com',
     'wss://*.campsite.com',
+    'wss://*.polo-apps.com',
     process.env.NODE_ENV !== 'production' && 'http://api.campsite.test:3001',
     process.env.NODE_ENV !== 'production' && 'ws://localhost:9000',
     'https://campsite-media.s3.amazonaws.com',
@@ -121,6 +123,7 @@ const moduleExports = {
   images: {
     unoptimized: true,
     domains: [
+      'camp.polo-apps.com',
       'app.campsite.design',
       'app.campsite.co',
       'app.campsite.com',

@@ -12,5 +12,5 @@ Sentry.init do |config|
     config.excluded_exceptions.delete("ActiveRecord::RecordNotFound")
   end
 
-  config.traces_sample_rate = 0
+  config.traces_sample_rate = 0.2
 end

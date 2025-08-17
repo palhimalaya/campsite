@@ -60,16 +60,9 @@ test:
 production:
   primary:
     <<: *default
-    username: <%= Rails.application.credentials.planetscale&.fetch(:username) %>
-    password: <%= Rails.application.credentials.planetscale&.fetch(:password) %>
-    database: <%= Rails.application.credentials.planetscale&.fetch(:database) %>
-    host: <%= Rails.application.credentials.planetscale&.fetch(:host) %>
-    ssl_mode: verify_identity
+    url: <%= ENV['DATABASE_URL'] %>
+
   primary_replica:
     <<: *default
-    username: <%= Rails.application.credentials.planetscale_replica&.fetch(:username) %>
-    password: <%= Rails.application.credentials.planetscale_replica&.fetch(:password) %>
-    database: <%= Rails.application.credentials.planetscale_replica&.fetch(:database) %>
-    host: <%= Rails.application.credentials.planetscale_replica&.fetch(:host) %>
-    ssl_mode: verify_identity
+    url: <%= ENV['DATABASE_REPLICA_URL'] %>
     replica: true

@@ -127,6 +127,7 @@ GEM
       addressable
     cssbundling-rails (1.1.2)
       railties (>= 6.0.0)
+    csv (3.3.5)
     date (3.3.4)
     debug (1.7.2)
       irb (>= 1.5.0)
@@ -255,6 +256,7 @@ GEM
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.4.1)
+    mysql2 (0.5.6)
     nanoid (2.0.0)
     net-http (0.4.1)
       uri
@@ -482,7 +484,7 @@ GEM
     tilt (2.4.0)
     timecop (0.9.6)
     timeout (0.4.1)
-    trilogy (2.8.1)
+    trilogy (2.9.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
@@ -539,6 +541,7 @@ DEPENDENCIES
   console1984 (= 0.2.1)
   counter_culture
   cssbundling-rails
+  csv (~> 3.3)
   debug
   device_detector
   devise (~> 4.9)
@@ -566,6 +569,7 @@ DEPENDENCIES
   minitest-stub-const
   mocha (~> 2.1)
   mock_redis
+  mysql2 (~> 0.5.6)
   nanoid
   omniauth
   omniauth-google-oauth2
@@ -612,8 +616,5 @@ DEPENDENCIES
   workflow-activerecord
   yajl-ruby
 
-RUBY VERSION
-   ruby 3.3.4p94
-
 BUNDLED WITH
-   2.3.14
+   2.6.2
