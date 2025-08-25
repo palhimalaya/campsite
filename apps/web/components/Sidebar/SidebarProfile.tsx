@@ -5,7 +5,7 @@ import { QuestionMarkCircleIcon } from '@campsite/ui/Icons'
 
 import { setFeedbackDialogOpenAtom } from '@/components/Feedback/FeedbackDialog'
 import { MemberAvatar } from '@/components/MemberAvatar'
-import { ChangelogDropdown } from '@/components/NavigationSidebar/ChangelogDropdown'
+// import { ChangelogDropdown } from '@/components/NavigationSidebar/ChangelogDropdown'
 import { ProfileDropdown } from '@/components/NavigationSidebar/ProfileDropdown'
 import { StatusPicker } from '@/components/StatusPicker'
 import { useScope } from '@/contexts/scope'
@@ -48,7 +48,7 @@ export function SidebarProfile() {
         className='text-tertiary hover:text-primary'
       />
 
-      <ChangelogDropdown align='start' side='bottom' />
+      {/* <ChangelogDropdown align='start' side='bottom' /> */}
     </div>
   )
 }
