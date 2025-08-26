@@ -41,6 +41,7 @@ const cspResourcesByDirective = {
     'https://*.polo-apps.com',
     'wss://*.campsite.com',
     'wss://*.polo-apps.com',
+    'https://hel1.your-objectstorage.com',
     process.env.NODE_ENV !== 'production' && 'http://api.campsite.test:3001',
     process.env.NODE_ENV !== 'production' && 'ws://localhost:9000',
     'https://campsite-media.s3.amazonaws.com',
