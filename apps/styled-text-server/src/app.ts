@@ -26,12 +26,20 @@ app.use(morgan('combined'))
 app.use(bodyParser.text({ limit: '5mb' }))
 app.use(bodyParser.urlencoded({ limit: '5mb', extended: true }))
 app.use((req, res, next) => {
+
+  if (req.path === '/up') return next();
+    
   if (req.header('Authorization') != `Bearer ${process.env.AUTHTOKEN}`) {
     return res.status(401).json({ message: 'invalid token' })
   }
 
   next()
 })
+
+app.get('/up', (req, res) => {
+  res.send('OK');
+});
+
 
 app.post('/html_to_slack', bodyParser.json(), (req, res) => {
   if (!req.is('*/json')) {

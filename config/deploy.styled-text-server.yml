@@ -1,0 +1,35 @@
+service: campsite-styled-text-server
+
+image: julii776/campsite
+
+servers:
+  web:
+    - 35.154.218.222  
+
+env:
+  secret:
+    - AUTHTOKEN
+    
+proxy:
+  ssl: true               
+  hosts:
+    - camp-styled-text.polo-apps.com
+  app_port: 9000 
+
+registry:
+  server: ghcr.io          
+  username: KAMAL_REGISTRY_USER_NAME
+  password: 
+    - KAMAL_REGISTRY_PASSWORD
+
+
+builder:
+  arch: amd64
+  remote: ssh://admin@35.154.218.222
+  context: .
+  dockerfile: apps/styled-text-server/Dockerfile
+  args:
+    SENTRY_AUTH_TOKEN: eaaopdummy
+
+ssh:
+  user: admin

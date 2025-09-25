@@ -44,7 +44,7 @@ ARG SENTRY_PROJECT
 
 RUN apt-get update -y && apt-get install -y ca-certificates
 
-RUN SENTRY_AUTH_TOKEN=${SENTRY_AUTH_TOKEN} SENTRY_ORG=${SENTRY_ORG} SENTRY_PROJECT=${SENTRY_PROJECT} npx turbo run sentry:sourcemaps --filter=@campsite/styled-text-server
+# RUN SENTRY_AUTH_TOKEN=${SENTRY_AUTH_TOKEN} SENTRY_ORG=${SENTRY_ORG} SENTRY_PROJECT=${SENTRY_PROJECT} npx turbo run sentry:sourcemaps --filter=@campsite/styled-text-server
 
 
 FROM base AS runner
