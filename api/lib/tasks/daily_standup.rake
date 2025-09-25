@@ -7,7 +7,7 @@ namespace :daily_standups do
 
     projects.split(',').each_with_index do |project_id, index|
       members = member_groups[index]
-      mentions = members.split(',')map { |id| "<@#{id}>" }.join(' ')
+      mentions = members.split(',').map { |id| "<@#{id}>" }.join(' ')
       content = "What did you work on today?\n\n#{mentions}"
       project = Project.find_by(public_id: project_id)
 
