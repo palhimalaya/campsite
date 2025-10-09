@@ -49,11 +49,12 @@ Rails.application.configure do
   # config.active_storage.service = :local
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true
 
   # Include generic and useful information about system operation, but avoid logging too much
   # information to avoid inadvertent exposure of personally identifiable information (PII).
-  config.log_level = :info
+  # Temporarily set to :debug for detailed logging (change back to :info after debugging)
+  config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "info").to_sym
 
   # Prepend all log lines with the following tags.
   config.log_tags = [:request_id]
@@ -102,6 +103,9 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
+  
+  # Enhanced logging for debugging
+  config.logger.level = Logger::DEBUG if ENV["RAILS_LOG_LEVEL"] == "debug"
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
@@ -111,6 +115,7 @@ Rails.application.configure do
   config.hosts << "camp-admin.polo-apps.com"
   config.hosts << "camp-auth.polo-apps.com"
   config.hosts << "camp-api.polo-apps.com"
+  config.hosts << "camp-cdn.polo-apps.com"  # CDN subdomain for serving media
 
   config.hosts << "camp-admin.truemark.dev"
   config.hosts << "camp-auth.truemark.dev"

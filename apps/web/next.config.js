@@ -139,7 +139,8 @@ const moduleExports = {
       'lh3.googleusercontent.com',
       'uploads.linear.app',
       'camp-api.polo-apps.com',
-      'hel1.your-objectstorage.com'
+      'hel1.your-objectstorage.com',
+      'camp-cdn.polo-apps.com',
     ]
   },
   async redirects() {
