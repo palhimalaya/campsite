@@ -106,18 +106,33 @@ module MediaUrlBuilder
     uri.to_s
   end
 
-  # Cloudflare CDN provider implementation
+    # Cloudflare CDN provider implementation
   def build_cloudflare_provider_url(path, params = {})
     base = Rails.application.credentials.dig(:cloudflare, :cdn_base_url)
-    return path unless base.present?
+    
+    # If CDN not configured, log warning and return path as-is
+    unless base.present?
+      Rails.logger.warn "[MediaUrlBuilder] Cloudflare CDN base URL not configured, returning path: #{path}"
+      return path
+    end
 
+    translated_params = translate_imgix_to_cloudflare_params(params)
+    
+    # Log in development for debugging
+    Rails.logger.debug "[MediaUrlBuilder] Building Cloudflare URL:"
+    Rails.logger.debug "  Base: #{base}"
+    Rails.logger.debug "  Path: #{path}"
+    Rails.logger.debug "  Original params: #{params.inspect}"
+    Rails.logger.debug "  Translated params: #{translated_params.inspect}"
+    
     uri = Addressable::URI.parse(base)
     uri.path = [uri.path, path].join('/').gsub(%r{/+}, '/')
-    
-    # Translate Imgix parameters to Cloudflare Image Resizing parameters
-    translated_params = translate_imgix_to_cloudflare_params(params)
     uri.query_values = (uri.query_values || {}).merge(translated_params) if translated_params.present?
-    uri.to_s
+    
+    final_url = uri.to_s
+    Rails.logger.debug "[MediaUrlBuilder] Final URL: #{final_url}" if Rails.env.development?
+    
+    final_url
   end
 
   # Translates Imgix query parameters to Cloudflare Image Resizing parameters
