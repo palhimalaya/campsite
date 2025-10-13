@@ -102,6 +102,12 @@ Rails.application.configure do
     logger           = ActiveSupport::Logger.new($stdout)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
+  else
+    # Log to file when not explicitly logging to STDOUT
+    log_file = Rails.root.join("log", "production.log")
+    logger = ActiveSupport::Logger.new(log_file, 2, 10.megabytes) # Keep 2 files, 10MB each
+    logger.formatter = config.log_formatter
+    config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
   
   # Enhanced logging for debugging
