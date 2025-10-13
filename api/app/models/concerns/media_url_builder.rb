@@ -20,7 +20,7 @@ module MediaUrlBuilder
 
   def fallback_avatar(name = "", append_params = {})
     color = FALLBACK_AVATAR_COLORS[name.each_byte.sum % FALLBACK_AVATAR_COLORS.length]
-    build_cloudflare_url(
+    build_imgix_url(
       "static/avatars/#{name[0] ? name[0].upcase : "blank"}.png",
       append_params.merge("blend-color": color)
     )
