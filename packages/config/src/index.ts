@@ -48,11 +48,11 @@ export const LINEAR_CLIENT_ID = IS_PRODUCTION ? LINEAR_PROD_CLIENT_ID : LINEAR_D
 export const ONBOARDING_STEP_KEY = 'onboardingStep'
 export const ONBOARDING_SHARED_POSTS_KEY = 'onboardingPostIds'
 
-export const PUSHER_KEY = process.env.NEXT_PUBLIC_PUSHER_KEY
-export const PUSHER_APP_CLUSTER = process.env.NEXT_PUBLIC_PUSHER_CLUSTER
+export const PUSHER_KEY = process.env.NEXT_PUBLIC_PUSHER_KEY!
+export const PUSHER_APP_CLUSTER = process.env.NEXT_PUBLIC_PUSHER_CLUSTER!
 
 // Key is generated from the VAPID keys in the Rails app but without padding ("=")
-export const WEB_PUSH_PUBLIC_KEY = process.env.NEXT_PUBLIC_WEB_PUSH_PUBLIC_KEY
+export const WEB_PUSH_PUBLIC_KEY = process.env.NEXT_PUBLIC_WEB_PUSH_PUBLIC_KEY!
 
 const DEFAULT_SEO_TITLE = 'Campsite — Work communication for distributed teams'
 const DEFAULT_SEO_DESCRIPTION =
