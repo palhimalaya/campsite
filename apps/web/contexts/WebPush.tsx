@@ -74,7 +74,9 @@ export const WebPushProvider: React.FC<Props> = ({ children }) => {
   }, [permission, pushManager, canPush])
 
   useEffect(() => {
-    if (canPush && 'serviceWorker' in navigator) {
+    // Register service worker ALWAYS (not just in PWA mode)
+    // This allows the install prompt to appear
+    if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register(`/service_worker.js?API_URL=${RAILS_API_URL}`).then(
         (registration) => {
           if ('pushManager' in registration) {
@@ -86,7 +88,7 @@ export const WebPushProvider: React.FC<Props> = ({ children }) => {
         }
       )
     }
-  }, [canPush])
+  }, []) // Only run once on mount, not dependent on canPush
 
   const value = useMemo(() => {
     return {

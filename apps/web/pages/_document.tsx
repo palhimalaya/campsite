@@ -14,7 +14,18 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang='en' className='fixed isolate h-full w-full overflow-hidden'>
-        <Head>
+                <Head>
+          {/* PWA Meta Tags */}
+          <link rel='manifest' href='/meta/manifest.webmanifest' />
+          <meta name='theme-color' content='#000000' />
+          <meta name='mobile-web-app-capable' content='yes' />
+          
+          {/* Apple PWA Meta Tags */}
+          <meta name='apple-mobile-web-app-capable' content='yes' />
+          <meta name='apple-mobile-web-app-status-bar-style' content='default' />
+          <meta name='apple-mobile-web-app-title' content='Campsite' />
+          <link rel='apple-touch-icon' href='/meta/apple-touch-icon.png' />
+          
           <meta name='slack-app-id' content='A03CG5AP4CE' />
           <link rel='preconnect' href='https://api.campsite.com' />
           <link rel='preconnect' href='https://campsite.imgix.net' />
