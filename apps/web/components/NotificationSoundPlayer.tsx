@@ -9,14 +9,21 @@ export function NotificationSoundPlayer() {
 
   useEffect(() => {
     // Create audio element for notification sound
-    audioRef.current = new Audio('/sounds/call-peer-join.mp3')
-    audioRef.current.volume = 0.5 // Adjust volume as needed
+    const audio = new Audio('/sounds/call-peer-join.mp3')
 
-    // Listen for messages from service worker
+    audio.volume = 0.5
+
+    audioRef.current = audio
+
+    // Simple message handler - just try to play the sound
     const handleMessage = (event: MessageEvent) => {
-      if (event.data?.type === 'PLAY_NOTIFICATION_SOUND') {
-        // Play the notification sound
-        audioRef.current?.play().catch((error) => {
+      if (event.data?.type === 'PLAY_NOTIFICATION_SOUND' && audioRef.current) {
+        // Create a fresh audio element each time to avoid state issues
+        const sound = new Audio('/sounds/call-peer-join.mp3')
+
+        sound.volume = 0.5
+        
+        sound.play().catch((error) => {
           // eslint-disable-next-line no-console
           console.error('Failed to play notification sound:', error)
         })

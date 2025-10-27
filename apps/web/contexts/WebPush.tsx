@@ -55,7 +55,6 @@ export const WebPushProvider: React.FC<Props> = ({ children }) => {
           userVisibleOnly: true,
           applicationServerKey: WEB_PUSH_PUBLIC_KEY
         })
-
         const p256dh = conv(subscription.getKey('p256dh'))
         const auth = conv(subscription.getKey('auth'))
 
@@ -69,29 +68,21 @@ export const WebPushProvider: React.FC<Props> = ({ children }) => {
       }
     }
 
-    run().catch((error) => {
-      // eslint-disable-next-line no-console
-      console.error('[WebPush] Error in subscription logic:', error)
-      Sentry.captureException(error)
-    })
+    run()
   }, [permission, pushManager])
 
   useEffect(() => {
-    // Register service worker ALWAYS (not just in PWA mode)
-    // This allows the install prompt to appear
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker
-        .register(`/service_worker.js?API_URL=${RAILS_API_URL}`)
-        .then(
-          (registration) => {
-            if ('pushManager' in registration) {
-              setPushManager(registration.pushManager)
-            }
-          },
-          (error) => {
-            Sentry.captureException(new Error(`Service Worker registration failed: ${error}`))
+      navigator.serviceWorker.register(`/service_worker.js?API_URL=${RAILS_API_URL}`).then(
+        (registration) => {
+          if ('pushManager' in registration) {
+            setPushManager(registration.pushManager)
           }
-        )
+        },
+        (error) => {
+          Sentry.captureException(`Service Worker registration failed: ${error}`)
+        }
+      )
     }
   }, [])
 
