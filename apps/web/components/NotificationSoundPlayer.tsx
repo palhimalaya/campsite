@@ -17,6 +17,7 @@ export function NotificationSoundPlayer() {
       if (event.data?.type === 'PLAY_NOTIFICATION_SOUND') {
         // Play the notification sound
         audioRef.current?.play().catch((error) => {
+          // eslint-disable-next-line no-console
           console.error('Failed to play notification sound:', error)
         })
       }
