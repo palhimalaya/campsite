@@ -53,7 +53,6 @@ Rails.application.configure do
 
   # Include generic and useful information about system operation, but avoid logging too much
   # information to avoid inadvertent exposure of personally identifiable information (PII).
-  # Temporarily set to :debug for detailed logging (change back to :info after debugging)
   config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "info").to_sym
 
   # Prepend all log lines with the following tags.
@@ -103,9 +102,6 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
-  
-  # Enhanced logging for debugging
-  config.logger.level = Logger::DEBUG if ENV["RAILS_LOG_LEVEL"] == "debug"
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
