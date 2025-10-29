@@ -485,12 +485,12 @@ GEM
     sentry-sidekiq (6.0.0)
       sentry-ruby (~> 6.0.0)
       sidekiq (>= 5.0)
-    sidekiq (7.3.0)
-      concurrent-ruby (< 2)
-      connection_pool (>= 2.3.0)
-      logger
-      rack (>= 2.2.4)
-      redis-client (>= 0.22.2)
+    sidekiq (8.0.8)
+      connection_pool (>= 2.5.0)
+      json (>= 2.9.0)
+      logger (>= 1.6.2)
+      rack (>= 3.1.0)
+      redis-client (>= 0.23.2)
     sidekiq-scheduler (6.0.1)
       rufus-scheduler (~> 3.2)
       sidekiq (>= 7.3, < 9)
@@ -638,7 +638,7 @@ DEPENDENCIES
   sentry-rails (~> 6.0.0)
   sentry-ruby (~> 6.0.0)
   sentry-sidekiq (~> 6.0.0)
-  sidekiq (= 7.3.0)
+  sidekiq (~> 8.0.8)
   sidekiq-scheduler (~> 6.0.0)
   slack-ruby-client
   sprockets-rails
