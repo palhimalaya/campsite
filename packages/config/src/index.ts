@@ -42,7 +42,7 @@ export const CAL_DOT_COM_APP_URL = 'https://app.cal.com/apps/campsite'
 
 export const LINEAR_CALLBACK_URL = `${RAILS_API_URL}/v1/integrations/linear/callback`
 export const LINEAR_DEV_CLIENT_ID = 'bc6d5e0c459d67c42ae462f1167736da'
-export const LINEAR_PROD_CLIENT_ID = '4277cfaa0e7809f91662d9c0bd1636f2'
+export const LINEAR_PROD_CLIENT_ID = '29090aad6cfae00eb560b42aa7617c0a'
 export const LINEAR_CLIENT_ID = IS_PRODUCTION ? LINEAR_PROD_CLIENT_ID : LINEAR_DEV_CLIENT_ID
 
 export const ONBOARDING_STEP_KEY = 'onboardingStep'
