@@ -592,6 +592,9 @@ Rails.application.routes.draw do
     resources :data_export_callbacks, only: [:update]
   end
 
+  # endpoint used by the CDN (Cloudflare) to fetch protected S3 objects
+  get "/cdn/*path", to: "cdn#show", as: :cdn_file, format: false
+
   # Adds OAuth routes to the V2 API.
   # This errors if used in a `scope` block so we use the `scope` option on `use_doorkeeper` instead.
   use_doorkeeper scope: "v2/oauth" do

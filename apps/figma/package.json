@@ -66,7 +66,8 @@
         "https://campsite.imgix.net",
         "https://res.cloudinary.com",
         "https://sockjs-us3.pusher.com",
-        "wss://ws-us3.pusher.com"
+        "wss://ws-us3.pusher.com",
+        "https://truecamp.imgix.net"
       ],
       "reasoning": "Campsite uses the API to authenticate and post to the user's account.",
       "devAllowedDomains": [

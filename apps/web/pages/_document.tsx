@@ -18,6 +18,7 @@ class MyDocument extends Document {
           <meta name='slack-app-id' content='A03CG5AP4CE' />
           <link rel='preconnect' href='https://api.campsite.com' />
           <link rel='preconnect' href='https://campsite.imgix.net' />
+          <link rel='preconnect' href='https://truecamp.imgix.net' />
           <link rel='preconnect' href='https://o1244295.ingest.sentry.io' />
         </Head>
 
