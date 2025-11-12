@@ -108,15 +108,9 @@ Rails.application.configure do
 
   config.active_record.async_query_executor = :global_thread_pool
 
-  config.hosts << "camp-admin.polo-apps.com"
-  config.hosts << "camp-auth.polo-apps.com"
-  config.hosts << "camp-api.polo-apps.com"
-  config.hosts << "camp-cdn.polo-apps.com"  # CDN subdomain for serving media
-
-  config.hosts << "camp-admin.truemark.dev"
-  config.hosts << "camp-auth.truemark.dev"
-  config.hosts << "camp-api.truemark.dev"
-
-  # required to access the app via Fly private network
-  config.hosts << "campsite-api.internal"
+  if ENV["ALLOWED_HOSTS"].present?
+    ENV["ALLOWED_HOSTS"].split(",").each do |host|
+      config.hosts << host.strip
+    end
+  end
 end
