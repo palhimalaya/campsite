@@ -102,3 +102,5 @@ end
 gem "mysql2", "~> 0.5.6"
 
 gem "csv", "~> 3.3"
+
+gem "ruby_llm", "~> 1.9"
